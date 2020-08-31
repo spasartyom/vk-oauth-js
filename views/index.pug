@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Tets VK
+    link(rel='stylesheet' href='/stylesheets/index.css')
+  body
+    if user
+      header
+        div.header_container 
+          div.profile_info
+            div.profile_info_avatar 
+              img(src=user.photos[0].value, alt="user_avatar")
+            span #{user.displayName}
+          div.logout
+            a(href="/logout") Log out
+          //- #{user.displayName}
+      div.container
+        each item in data
+          //- - const online = item.online ? 'Online' : 'Offline'
+          div.friend
+            div.avatar_wrapper
+              img(src=item.photo_100, alt="friend_avatar")
+            div.friend_info  
+              a.friend_info-name(href="http://vk.com/id" + item.id target='_blank') #{item.first_name} #{item.last_name}
+              if item.city
+                div #{item.city.title}, #{item.country.title}
+              if item.university_name
+                div #{item.university_name}
+              //- div #{online} #4bb34a
+          //- hr
+    else
+      div.welcome
+        h2 Welcome to the App! Please, log in.
+        a(href="/auth/vkontakte") Log in with Vkontakte 
+          //- p #{data[0].first_name} #{data[0].last_name}
+      //- hr
+      //- div.friend 
+      //-   p #{data[1].first_name}
+      //- hr
+        //- data[1].first_name
+        //- img(src="", alt="")
+    //- each item in data
+    //-   - const online = item.online ? 'онлайн' : 'оффлайн'
+    //-   li= item.first_name + ' ' + online
+    //- h1= data[0]
+    //- script.
+    //-   console.log(data)
+    //-  | var species = !{JSON.stringify(stream.species)};
+    //-  | var fields = [];
+    //-  | for (var key in species) fields.push(key)
+     | console.log(user)
