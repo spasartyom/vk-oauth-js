@@ -15,8 +15,8 @@ app.use(logger);
 app.set('view engine', 'pug');
 app.use(Express.static('assets'));
 
-const VKONTAKTE_APP_ID = '111111111';
-const VKONTAKTE_APP_SECRET = '1111111111111111111';
+const VKONTAKTE_APP_ID = '7582587';
+const VKONTAKTE_APP_SECRET = 'KNqKK8AIPYOr5dQvw7yn';
 
 passport.use(new VKontakteStrategy({
   clientID: VKONTAKTE_APP_ID,
