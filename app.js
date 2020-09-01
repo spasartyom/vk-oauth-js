@@ -15,8 +15,8 @@ app.use(logger);
 app.set('view engine', 'pug');
 app.use(Express.static('assets'));
 
-const VKONTAKTE_APP_ID = '7582587';
-const VKONTAKTE_APP_SECRET = 'KNqKK8AIPYOr5dQvw7yn';
+const VKONTAKTE_APP_ID = '111111111';
+const VKONTAKTE_APP_SECRET = '1111111111111111111';
 
 passport.use(new VKontakteStrategy({
   clientID: VKONTAKTE_APP_ID,
@@ -38,8 +38,8 @@ passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function (obj, done) {
-  done(null, obj);
+passport.deserializeUser(function (user, done) {
+  done(null, user);
 });
 
 app.use(cookieParser());
@@ -52,7 +52,6 @@ app.get('/', (req, res) => {
   if (req.user) {
     axios.get('https://api.vk.com/method/friends.search?count=5&fields=photo_100,online,city,country,education&order=random&access_token=' + req.user.accessToken + '&v=5.64',)
       .then((data) => {
-        // res.send(JSON.stringify(data.data))
         console.log(req.user);
         res.render('index', { data: data.data.response.items, user: req.user });
       })
