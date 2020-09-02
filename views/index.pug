@@ -15,7 +15,6 @@ html(lang="en")
             span #{user.displayName}
           div.logout
             a(href="/logout") Log out
-          //- #{user.displayName}
       div.container
         each item in data
           //- - const online = item.online ? 'Online' : 'Offline'
@@ -29,25 +28,11 @@ html(lang="en")
               if item.university_name
                 div #{item.university_name}
               //- div #{online} #4bb34a
-          //- hr
     else
-      div.welcome
-        h2 Welcome to the App! Please, log in.
-        a(href="/auth/vkontakte") Log in with Vkontakte 
-          //- p #{data[0].first_name} #{data[0].last_name}
-      //- hr
-      //- div.friend 
-      //-   p #{data[1].first_name}
-      //- hr
-        //- data[1].first_name
-        //- img(src="", alt="")
-    //- each item in data
-    //-   - const online = item.online ? 'онлайн' : 'оффлайн'
-    //-   li= item.first_name + ' ' + online
-    //- h1= data[0]
-    //- script.
-    //-   console.log(data)
-    //-  | var species = !{JSON.stringify(stream.species)};
-    //-  | var fields = [];
-    //-  | for (var key in species) fields.push(key)
-     | console.log(user)
+    div.welcome
+      h3 Welcome to the App! Please, log in.
+      a.btn(href="/auth/vkontakte") Log in with Vkontakte 
+    //- div.welcome
+      //- div Welcome! Please, log in with Vkontakte.
+      //- button
+      //- a.button(href="/auth/vkontakte") Log in 
